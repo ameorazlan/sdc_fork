@@ -1,0 +1,7 @@
+mouse_data/*
+mouse_data/IMG
+test_data/*
+models/*
+recordings/*
+data_new/*
+__pycache__/*
