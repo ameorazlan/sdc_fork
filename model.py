@@ -13,7 +13,7 @@ import os
 np.random.seed(0)
 
 def load_data(args):
-    data_df = pd.read_csv(os.path.join(os.getcwd(), args.data_dir, 'driving_log.csv'), names=['center', 'left', 'right', 'steering', 'throttle', 'reverse', 'speed'])
+    data_df = pd.read_csv(os.path.join(os.getcwd(), args.data_dir, 'driving_log_split_3.csv'), names=['center', 'left', 'right', 'steering', 'throttle', 'reverse', 'speed'])
     X = data_df[['center', 'left', 'right']].values
     y = data_df['steering'].values
     X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=args.test_size, random_state=0)
@@ -37,7 +37,7 @@ def build_model(args):
     return model
 
 def train_model(model, args, X_train, X_valid, y_train, y_valid):
-    checkpoint = ModelCheckpoint('mouse_data_model-{epoch:03d}.h5',
+    checkpoint = ModelCheckpoint('latest_data_split_3_model-{epoch:03d}.h5',
                                  monitor='val_loss',
                                  verbose=0,
                                  save_best_only=args.save_best_only,

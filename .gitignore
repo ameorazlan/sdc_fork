@@ -5,3 +5,6 @@ models/*
 recordings/*
 data_new/*
 __pycache__/*
+jungle_mosue_data/*
+new_jungle_data/*
+latest_data_splits/*
